@@ -1,0 +1,27 @@
+{% extends "vaxcharts/base.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+    <div class="jumbotron">
+        <h1>Vax Trends</h1>
+        <p>Come here for charts and information regarding vaccination coverage in children age 19-35 months and incidence rates of vaccine-preventable diseases in the United States.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <p>All disease incidence and vaccine coverage data from the Centers for Disease Control and Prevention. </p>
+       </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+
+      <hr>
+        {% include "vaxcharts/includes/footer.html" %}
+    </div> <!-- /container -->
+    
+
+{% endblock %}
+
