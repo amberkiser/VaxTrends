@@ -1,0 +1,45 @@
+{% extends "vaxcharts/base.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h1>Data Sources</h1>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-9">
+                <h3>Disease Incidence Numbers</h3> 
+                <blockquote>
+                    <p><a href = 'https://www.cdc.gov/mmwr/mmwr_nd/index.html'>CDC Morbidity and Mortality Weekly Report - Summary of Notifiable Infectious Diseases</a></p>
+                    <p>Accessed 12/6/2017</p>
+                </blockquote>
+                <h3>Population Numbers</h3>
+                <blockquote>
+                    <p><a href='https://www.census.gov/population/international/data/idb/informationGateway.php'>United States Census Bureau - International Data Base</a></p>
+                    <p>Accessed 12/6/2017</p>
+                </blockquote>
+                <h3>Vaccine Coverage Estimates</h3>
+                <blockquote>
+                    <p><a href='https://www.cdc.gov/vaccines/imz-managers/coverage/childvaxview/pubs-presentations.html'>CDC National Immunization Survery-Child</a></p>
+                    <p>Accessed 12/14/2017</p>
+                </blockquote>
+                <h3>Immunization Schedule</h3>
+                <blockquote>
+                    <p><a href='https://www.cdc.gov/vaccines/schedules/past.html'>Centers for Disease Control and Prevention</a></p>
+                    <p>Accessed 12/13/2017</p>
+                    <p><a href='http://www.immunize.org/timeline/'>Immunization Action Coalition</a></p>
+                    <p>Accessed 12/13/2017</p>
+                </blockquote>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+
+      <hr>
+        {% include "vaxcharts/includes/footer.html" %}
+    </div> <!-- /container -->
+    
+{% endblock %}
+

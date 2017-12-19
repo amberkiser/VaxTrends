@@ -1,0 +1,57 @@
+{% extends "vaxcharts/base.html" %}
+
+
+{% block content %}
+
+    <div class="container">
+        <h1>Vaccine-Preventable Disease Incidence Rates</h1>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-9">
+              {{ div | safe }}
+           </div>
+            <div class="col-md-2">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+        <p>*Data from CDC Morbidity and Mortality Weekly Reports</p>
+        <p>*Incidence rate calculated for all ages, unless otherwise specified.</p>
+        <div class='row'>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-9">
+                <h3>History of Vaccine Availability</h3>
+                <table class='table'>
+                    <tr>
+                        <th>Disease</th>
+                        <th>Current Vaccine</th>
+                        <th>Year Vaccine First Available</th>
+                    </tr>
+                    {% for item in data %}
+                    <tr>
+                        <td>{{item.disease}}</td>
+                        <td>{{item.current_vaccine}}</td>
+                        <td>{{item.first_available}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <p>*Rotavirus is not a nationally notifiable disease.</p>
+        <p>*Diphtheria not nationally notifiable after 1979.</p>
+        <p>*Chickenpox not nationally notifiable after 1991.</p>
+
+      <hr>
+        {% include "vaxcharts/includes/footer.html" %}
+    </div> <!-- /container -->
+    
+{{ script | safe }}
+{% endblock %}
+

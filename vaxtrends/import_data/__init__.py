@@ -5,4 +5,4 @@ A package for importing data into the SQLite database.
 @author: amberkiser
 """
 
-__all__ = ['import_incidence_rate','import_coverage']
+__all__ = ['import_incidence_rate','import_coverage','import_history']

@@ -8,7 +8,7 @@ the SQLite database.
 """
 
 def import_coverage_data():
-s        
+        
     import pandas as pd
     import os 
     import django

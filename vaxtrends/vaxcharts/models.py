@@ -34,3 +34,12 @@ class DiseaseChoices(models.Model):
     def __str__(self):
         return self.disease
     
+class VaxHistory(models.Model):
+    disease = models.CharField(max_length = 200)
+    current_vaccine = models.CharField(max_length = 200)
+    first_available = models.IntegerField()
+    
+    def __str__(self):
+        return '%s Vaccine: %s First Available: %d'%(self.disease,
+                                                     self.current_vaccine,
+                                                     self.first_available)
