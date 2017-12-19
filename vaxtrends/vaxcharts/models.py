@@ -17,3 +17,20 @@ class VaxChoices(models.Model):
     def __str__(self):
         return self.vaccine
 
+class VaxIncidenceRate(models.Model):
+    year = models.IntegerField()
+    disease = models.CharField(max_length = 200)
+    vaccine = models.CharField(max_length = 200)
+    incidence_rate = models.FloatField()
+    
+    def __str__(self):
+        return '%s %d Vaccine: %s Incidence Rate: %d'%(self.disease, self.year,
+                                                       self.vaccine, 
+                                                       self.incidence_rate)
+
+class DiseaseChoices(models.Model):
+    disease = models.CharField(max_length = 200)
+    
+    def __str__(self):
+        return self.disease
+    

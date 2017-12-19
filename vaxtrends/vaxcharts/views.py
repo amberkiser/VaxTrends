@@ -48,4 +48,8 @@ def coverage(request):
     return render(request, 'vaxcharts/coverage.html',
             {'script' : script , 'div' : div, 
              'form': form})
+    
+def schedule(request):
+    return render(request, 'vaxcharts/schedule.html')
+
 
