@@ -1,3 +1,7 @@
+"""
+This module is where models are registers so that they can be accessed through
+the admin site.
+"""
 from django.contrib import admin
 
 from .models import VaxCoverage, VaxChoices, VaxIncidenceRate, DiseaseChoices,\

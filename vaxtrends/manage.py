@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+This manages the django web app.
+"""
 import os
 import sys
 

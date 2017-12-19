@@ -5,4 +5,4 @@ A package for getting values used in a boken plot.
 @author: amberkiser
 """
 
-__all__ = ['vaxplot','vpdplot']
+__all__ = ['vaxplot', 'vpdplot']

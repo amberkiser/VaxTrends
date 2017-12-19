@@ -1,3 +1,7 @@
+"""
+This module holds the urls for each page in the app. It defines which views
+will be executed when a certain url is input.
+"""
 from django.conf.urls import url
 
 from . import views
