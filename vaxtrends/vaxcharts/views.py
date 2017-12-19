@@ -26,7 +26,11 @@ def coverage(request):
                                          shade_color = '#7570B3', 
                                          shade_alpha = 0.2)
     
-    ptitle ='%s Vaccination Coverage in Children Age 19-35 Months'%vax
+    if vax == 'No Vaccinations':
+        ptitle = 'Children Age 19-35 Months Who Received No Vaccinations'
+    else:
+        ptitle ='%s Vaccination Coverage in Children Age 19-35 Months'%vax
+
     hover = HoverTool(tooltips=[
         ("Year", "$x{int}"),    
         ("Coverage:", "$y"),
