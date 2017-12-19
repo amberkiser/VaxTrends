@@ -2,18 +2,25 @@ from django.shortcuts import render, render_to_response
 #from django.http import HttpResponse
 from bokeh.plotting import figure, output_file, show 
 from bokeh.embed import components
-from bokeh.models import HoverTool
+from bokeh.models import HoverTool, BoxZoomTool, ResetTool 
 from plotting import allplot
 import pandas as pd
-from vaxcharts.models import VaxCoverage
+from vaxcharts.models import VaxCoverage, VaxChoices
+from .forms import CoverageForm
 
 def index(request):
     return render(request, 'vaxcharts/home.html')
 
 def coverage(request):
-    all_data = pd.DataFrame.from_records(VaxCoverage.objects.all().values())
-    
+    form = CoverageForm(request.POST)
     vax = 'Dtap'
+    if form.is_valid():
+        vax = str(form.cleaned_data['vaccine'])
+    
+    all_data = pd.DataFrame.from_records(VaxCoverage.objects.all().values())
+
+
+
     plot_data = allplot.VaxPlot(df = all_data, color = 'black', 
                                          vaccine = vax, 
                                          shade_color = '#7570B3', 
@@ -24,6 +31,7 @@ def coverage(request):
         ("Year", "$x{int}"),    
         ("Coverage:", "$y"),
     ])
+    
     p = figure(plot_width=800, plot_height=400, tools = [hover], 
                title = ptitle)
     
@@ -33,8 +41,11 @@ def coverage(request):
             line_alpha=plot_data.shade_alpha)
     p.xaxis.axis_label = "Year"
     p.yaxis.axis_label = "Coverage"
+    p.add_tools(BoxZoomTool())
+    p.add_tools(ResetTool())
 
     script, div = components(p)
-    return render_to_response( 'vaxcharts/coverage.html',
-            {'script' : script , 'div' : div} )
-#    return render(request, 'vaxcharts/coverage.html')
+    return render(request, 'vaxcharts/coverage.html',
+            {'script' : script , 'div' : div, 
+             'form': form})
+
